@@ -2,7 +2,7 @@
 
 [Tiếng Việt](README.vi.md) | English
 
-This repository contains a Codex skill for creating and reviewing use-case sequence diagrams with the AURA Shore Store conventions. The bundled profile is version 2.3.0. These conventions are project choices, not universal UML requirements.
+This repository contains a Codex skill for creating and reviewing use-case sequence diagrams with the AURA Shore Store conventions. The bundled profile is version 3.1.0. These conventions are project choices, not universal UML requirements.
 
 ## Before installing
 
@@ -53,6 +53,6 @@ Start a **new Codex chat** and ask:
 Use $aura-sequence-diagrams to review this use-case sequence diagram against the AURA rules.
 ```
 
-For the actual AURA application, the user also needs the AURA workspace, its `AGENTS.md`, current code, UC material, and release build scripts. In another project, provide its code or UC specification and explicitly ask for the AURA diagram style. The skill will use project-specific paths and outputs only when available.
+For the actual AURA application, the user also needs the AURA workspace, its `AGENTS.md`, current code, `AURA_Backlog.xlsx` for actor roles, UC material, and release build scripts. In another project, provide its code or UC specification and explicitly ask for the AURA diagram style. The skill will use project-specific paths and outputs only when available.
 
 The owner publishes changes to this repository only after an explicit update request. Installing the skill does not enable automatic GitHub updates.

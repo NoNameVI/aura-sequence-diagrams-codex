@@ -2,7 +2,7 @@
 
 Tiếng Việt | [English](README.md)
 
-Repo này chứa skill giúp Codex tạo và rà soát sequence diagram use case theo quy ước của dự án AURA Shore Store. Bộ quy tắc đi kèm có phiên bản 2.3.0. Đây là quy ước của dự án, không phải yêu cầu chung của UML.
+Repo này chứa skill giúp Codex tạo và rà soát sequence diagram use case theo quy ước của dự án AURA Shore Store. Bộ quy tắc đi kèm có phiên bản 3.1.0. Đây là quy ước của dự án, không phải yêu cầu chung của UML.
 
 ## Trước khi cài
 
@@ -53,6 +53,6 @@ Mở **chat Codex mới** rồi gửi yêu cầu mẫu:
 Hãy dùng $aura-sequence-diagrams để rà soát sequence diagram use case này theo quy tắc AURA.
 ```
 
-Để làm việc với ứng dụng AURA thật, bạn còn cần workspace AURA, `AGENTS.md`, code hiện tại, tài liệu UC và các script build theo release. Với dự án khác, hãy cung cấp code hoặc mô tả UC và yêu cầu rõ kiểu trình bày AURA. Skill chỉ dùng đường dẫn và định dạng riêng của AURA khi chúng có sẵn.
+Để làm việc với ứng dụng AURA thật, bạn còn cần workspace AURA, `AGENTS.md`, code hiện tại, `AURA_Backlog.xlsx` để xác định actor, tài liệu UC và các script build theo release. Với dự án khác, hãy cung cấp code hoặc mô tả UC và yêu cầu rõ kiểu trình bày AURA. Skill chỉ dùng đường dẫn và định dạng riêng của AURA khi chúng có sẵn.
 
 Chủ repo chỉ đăng thay đổi khi có yêu cầu cập nhật rõ ràng. Cài skill không bật đồng bộ GitHub tự động.

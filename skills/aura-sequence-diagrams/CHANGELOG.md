@@ -1,5 +1,18 @@
 # AURA sequence diagram skill changes
 
+## 3.1.0 — 2026-11-06
+
+- Required every displayed synchronous call to open an activation on the receiving lifeline, including nested and self calls.
+- Required each return or operation endpoint to close the corresponding activation independently in every `alt`/`opt` operand.
+- Deferred non-semantic layout polishing until a dedicated formatting pass; content, branch structure, numbering and activation correctness remain the current V9 migration priority.
+
+## 3.0.0 — 2026-11-06
+
+- Changed visible message and `ref` numbering to require one trailing period immediately before the label, including hierarchical numbers such as `1.1.`.
+- Required every UC actor set to come directly from the current `AURA_Backlog.xlsx` `Authorization` sheet; actor names are displayed without spaces, separated by `/`, and wrapped by role at `/` when needed.
+- Required a nested `ref` frame to remain strictly inside its parent operand with visible padding on all four sides.
+- Marked V9 source, Draw.io and SVG artefacts for migration and final QA under the new breaking conventions.
+
 ## 2.3.0 — 2026-11-06
 
 - Extended referenced-child filenames from `UC-<UC>-Part-<n>` to `UC-<UC>-Part-<n>_<Functional_Description>` so files remain traceable and distinguishable without opening them.
