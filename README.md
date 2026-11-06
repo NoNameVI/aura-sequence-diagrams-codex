@@ -1,20 +1,58 @@
 # AURA sequence diagrams for Codex
 
-This repository packages the AURA Shore Store UC sequence-diagram skill for another Codex user. It includes the approved AURA diagram profile (version 2.3.0). The profile is a project convention, not a general UML standard.
+[Tiếng Việt](README.vi.md) | English
 
-## Install
+This repository contains a Codex skill for creating and reviewing use-case sequence diagrams with the AURA Shore Store conventions. The bundled profile is version 2.3.0. These conventions are project choices, not universal UML requirements.
 
-Copy the `skills/aura-sequence-diagrams` folder to one of these locations:
+## Before installing
 
-- Personal: `~/.agents/skills/aura-sequence-diagrams` (Windows PowerShell: `$HOME\.agents\skills\aura-sequence-diagrams`)
-- One repository: `<repo>/.agents/skills/aura-sequence-diagrams`
+1. Ask the repository owner for access. This repository is **private**; GitHub may show 404 until your account has access.
+2. Install Git and sign in to GitHub when Git asks. The commands below clone the private repository and copy only the skill into your personal Codex skills directory. They stop if the skill is already installed, so they do not overwrite a local version.
 
-Then start a new Codex chat and invoke `$aura-sequence-diagrams`, or ask for an AURA UC sequence diagram. Codex may detect the skill automatically from its description.
+## Install on Windows (PowerShell)
 
-For GitHub-based installation, ask Codex's `$skill-installer` to install `skills/aura-sequence-diagrams` from this private repository. The installer must have access to the repository. Manual copying works without the installer.
+Open PowerShell, copy the entire block, and press Enter:
 
-## Scope
+```powershell
+$repoDir = Join-Path $env:TEMP ('aura-sequence-diagrams-codex-' + [guid]::NewGuid().ToString('N'))
+$skillDir = Join-Path $HOME '.agents\skills\aura-sequence-diagrams'
+if (Test-Path -LiteralPath $skillDir) { throw "Skill already exists at $skillDir" }
+git clone --depth 1 https://github.com/NoNameVI/aura-sequence-diagrams-codex.git $repoDir
+if ($LASTEXITCODE -ne 0) { throw 'Git clone failed. Check repository access and GitHub sign-in.' }
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent $skillDir) | Out-Null
+Copy-Item -LiteralPath (Join-Path $repoDir 'skills\aura-sequence-diagrams') -Destination $skillDir -Recurse
+if (-not (Test-Path -LiteralPath (Join-Path $skillDir 'SKILL.md'))) { throw 'Installation check failed.' }
+Write-Host "Installed: $skillDir"
+```
 
-The bundled profile contains AURA-specific choices such as DTO lifelines, MySQL, numbering, A3 layout, `ref` naming, and V9 SVG output. Creating or auditing diagrams against the actual AURA application also requires access to the AURA workspace, its `AGENTS.md`, code, build scripts, and UC material. In another project, supply its code or UC specification and explicitly request the AURA diagram style; project-specific paths and outputs then apply only where available.
+## Install on macOS or Linux (Terminal)
 
-The source AURA workspace and this distribution repository are separate. Changes here are published to GitHub only when the owner explicitly requests an update.
+Open Terminal, copy the entire block, and press Enter:
+
+```bash
+(
+  set -eu
+  repo_dir=$(mktemp -d)
+  skill_dir="$HOME/.agents/skills/aura-sequence-diagrams"
+  if [ -e "$skill_dir" ]; then echo "Skill already exists at $skill_dir" >&2; exit 1; fi
+  git clone --depth 1 https://github.com/NoNameVI/aura-sequence-diagrams-codex.git "$repo_dir/repo"
+  mkdir -p "$HOME/.agents/skills"
+  cp -R "$repo_dir/repo/skills/aura-sequence-diagrams" "$skill_dir"
+  test -f "$skill_dir/SKILL.md"
+  printf 'Installed: %s\n' "$skill_dir"
+)
+```
+
+Git may open a GitHub sign-in prompt during cloning. If cloning reports 404 or permission denied, verify that the GitHub account used by Git has access to this private repository.
+
+## Check and use
+
+Start a **new Codex chat** and ask:
+
+```text
+Use $aura-sequence-diagrams to review this use-case sequence diagram against the AURA rules.
+```
+
+For the actual AURA application, the user also needs the AURA workspace, its `AGENTS.md`, current code, UC material, and release build scripts. In another project, provide its code or UC specification and explicitly ask for the AURA diagram style. The skill will use project-specific paths and outputs only when available.
+
+The owner publishes changes to this repository only after an explicit update request. Installing the skill does not enable automatic GitHub updates.
