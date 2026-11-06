@@ -1,0 +1,4 @@
+interface:
+  display_name: "AURA Sequence Diagrams"
+  short_description: "Áp dụng quy tắc sequence UC của dự án AURA"
+  default_prompt: "Use $aura-sequence-diagrams to review or update an AURA UC sequence diagram."
